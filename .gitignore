@@ -1,2 +1,3 @@
 secrets.h
 .claude/settings.local.json
+.pio/
