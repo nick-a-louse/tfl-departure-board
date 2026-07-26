@@ -20,8 +20,8 @@ namespace {
 RTC_DATA_ATTR time_t g_lastFullRefresh = 0;
 
 // Tracks the last successful NTP sync, so most cycles can skip the network
-// round-trip entirely and just trust the RTC clock (see NTP_RESYNC_INTERVAL_SEC
-// in config.h). Survives deep sleep in RTC memory.
+// round-trip and just trust the RTC clock for a bounded window (see
+// NTP_RESYNC_INTERVAL_SEC in config.h). Survives deep sleep in RTC memory.
 RTC_DATA_ATTR time_t g_lastNtpSync = 0;
 
 int calcSleepMinutes(int hour) {
@@ -93,6 +93,10 @@ void setup() {
   setenv("TZ", TZ_INFO, 1);
   tzset();
 
+  // The internal RTC oscillator (this board has no external 32.768kHz
+  // crystal) drifts by minutes over the course of a day - measured ~3m36s
+  // over 10h17m, i.e. a few seconds per hour - so it needs resyncing far
+  // more often than once a day (see NTP_RESYNC_INTERVAL_SEC in config.h).
   time_t nowBeforeSync = time(nullptr);
   bool needsNtpSync = (g_lastNtpSync == 0) ||
                        (difftime(nowBeforeSync, g_lastNtpSync) >= (double)NTP_RESYNC_INTERVAL_SEC);
@@ -116,7 +120,7 @@ void setup() {
     }
   } else {
     timeSynced = getLocalTime(&timeinfo);
-    Serial.println("Skipping NTP sync (synced within the last day) - using RTC clock.");
+    Serial.println("Skipping NTP sync (synced within the last hour) - using RTC clock.");
   }
 
   if (!timeSynced) {

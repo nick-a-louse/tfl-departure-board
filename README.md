@@ -15,7 +15,7 @@ Pins are set in [`include/config.h`](include/config.h).
 ## What it does
 
 - **Train and bus departures.** One station section and four bus-stop sections, each with its own label and an optional bus-route filter.
-- **Built for battery life.** It deep-sleeps between updates: every 5 minutes in the day, 15 in the evening and 30 overnight. Wi-Fi reconnects fast using the saved channel and access point, and the clock only re-syncs with NTP once a day.
+- **Built for battery life.** It deep-sleeps between updates: every 5 minutes in the day, 15 in the evening and 30 overnight. Wi-Fi reconnects fast using the saved channel and access point, and the clock re-syncs with NTP once an hour (the board has no RTC crystal, so its clock drifts by a few seconds an hour in deep sleep).
 - **Fails gracefully.** If a fetch fails, it shows the last good data for up to 20 minutes rather than a blank section. Clear screens appear for "no Wi-Fi", "no time sync" and "battery critical". On a critical battery it stops waking up altogether instead of draining the cell.
 - **Kind to the screen.** Fast partial refreshes most of the time, with a full refresh at least hourly to clear ghosting.
 

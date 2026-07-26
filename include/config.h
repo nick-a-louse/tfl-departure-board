@@ -42,10 +42,12 @@ const int SLEEP_MIN_EVENING   = 15;
 const int SLEEP_MIN_DAY       = 5;
 
 // --- Time sync ---
-// The RTC clock keeps ticking (accurately enough) through deep sleep, so a
-// fresh NTP sync every 5-minute wake is unnecessary - drift over a day is a
-// few seconds at most, well under what matters for train times.
-const time_t NTP_RESYNC_INTERVAL_SEC = 24 * 60 * 60;
+// This board has no external 32.768kHz RTC crystal, so deep-sleep timing
+// relies on the far less accurate internal RC oscillator - measured drift
+// was ~3m36s over 10h17m without a resync. An hourly resync bounds
+// worst-case drift to a few seconds, well under what matters for train
+// times, while still skipping the NTP round-trip on most wakes.
+const time_t NTP_RESYNC_INTERVAL_SEC = 60 * 60;
 
 // --- HTTP fetch ---
 const unsigned long HTTP_TIMEOUT_MS = 30000;
