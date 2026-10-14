@@ -131,10 +131,10 @@ void setup() {
 
   DepartureResult results[5];
   results[0] = fetchDepartures(0, STOP_TRAIN, true, "");
-  results[1] = fetchDepartures(1, STOP_BUS_PR, false, "");
-  results[2] = fetchDepartures(2, STOP_BUS_PA, false, "496");
-  results[3] = fetchDepartures(3, STOP_BUS_AP, false, "370");
-  results[4] = fetchDepartures(4, STOP_BUS_AC, false, "165,370");
+  results[1] = fetchDepartures(1, STOP_BUS_1, false, LINES_BUS_1);
+  results[2] = fetchDepartures(2, STOP_BUS_2, false, LINES_BUS_2);
+  results[3] = fetchDepartures(3, STOP_BUS_3, false, LINES_BUS_3);
+  results[4] = fetchDepartures(4, STOP_BUS_4, false, LINES_BUS_4);
 
   Serial.printf("Free heap after fetch: %d\n", ESP.getFreeHeap());
 

@@ -7,12 +7,10 @@
 // --- Timezone ---
 const char* const TZ_INFO = "GMT0BST,M3.5.0/1,M10.5.0/2";
 
-// --- TfL Stop IDs ---
-const String STOP_TRAIN   = "910GEXAMPLE";
-const String STOP_BUS_PR  = "490000000A";
-const String STOP_BUS_PA  = "490000000B";
-const String STOP_BUS_AP  = "490000000C";
-const String STOP_BUS_AC  = "490000000D";
+// --- TfL stops ---
+// Stop IDs, display labels and bus-route filters live in include/stops.h,
+// which is gitignored. Copy include/stops.h.example to include/stops.h and fill it in.
+#include "stops.h"
 
 // --- Hardware pins (DFRobot FireBeetle 2 ESP32-E) ---
 const int PIN_BAT_ADC  = A2; // GPIO34, confirmed ADC1 - safe to read with WiFi active

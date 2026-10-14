@@ -1,0 +1,33 @@
+#ifndef STOPS_H
+#define STOPS_H
+
+#include <Arduino.h>
+
+// The stops this board shows: one train or Tube station and four bus stops.
+// Copy to include/stops.h and fill in your own; stops.h is gitignored.
+//
+// Stop IDs are TfL NaPTAN IDs. Find them with the TfL API, e.g.
+//   https://api.tfl.gov.uk/StopPoint/Search/<station name>
+// Train/Tube stations start 910G or 940G; bus stops start 490.
+// LINES_* is an optional comma-separated list of bus routes to show ("" = all).
+
+const String STOP_TRAIN = "910GEXAMPLE";
+const char* const LABEL_TRAIN = "Example Station";
+
+const String STOP_BUS_1 = "490000000A";
+const char* const LABEL_BUS_1 = "Example Road (A)";
+const String LINES_BUS_1 = "";
+
+const String STOP_BUS_2 = "490000000B";
+const char* const LABEL_BUS_2 = "Example Station (B)";
+const String LINES_BUS_2 = "";
+
+const String STOP_BUS_3 = "490000000C";
+const char* const LABEL_BUS_3 = "Example Roundabout (C)";
+const String LINES_BUS_3 = "";
+
+const String STOP_BUS_4 = "490000000D";
+const char* const LABEL_BUS_4 = "Example Roundabout (D)";
+const String LINES_BUS_4 = "";
+
+#endif

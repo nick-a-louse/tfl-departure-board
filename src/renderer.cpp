@@ -260,24 +260,24 @@ void drawBoard(const DepartureResult results[5], int batteryPercent, int hour24,
 
     int16_t t_x1, t_y1; uint16_t t_w, t_h;
 
-    display.getTextBounds("Example Station", startX, 90 + 15, &t_x1, &t_y1, &t_w, &t_h);
-    drawBoxedSection("Example Station", 90, true, t_w);
+    display.getTextBounds(LABEL_TRAIN, startX, 90 + 15, &t_x1, &t_y1, &t_w, &t_h);
+    drawBoxedSection(LABEL_TRAIN, 90, true, t_w);
     renderDepartures(results[0], 90 + 45, true, 5);
 
-    display.getTextBounds("Example Road (PR)", startX, 285 + 15, &t_x1, &t_y1, &t_w, &t_h);
-    drawBoxedSection("Example Road (PR)", 285, false, t_w);
+    display.getTextBounds(LABEL_BUS_1, startX, 285 + 15, &t_x1, &t_y1, &t_w, &t_h);
+    drawBoxedSection(LABEL_BUS_1, 285, false, t_w);
     renderDepartures(results[1], 285 + 45, false, 2);
 
-    display.getTextBounds("Example Station (PA)", startX, 395 + 15, &t_x1, &t_y1, &t_w, &t_h);
-    drawBoxedSection("Example Station (PA)", 395, false, t_w);
+    display.getTextBounds(LABEL_BUS_2, startX, 395 + 15, &t_x1, &t_y1, &t_w, &t_h);
+    drawBoxedSection(LABEL_BUS_2, 395, false, t_w);
     renderDepartures(results[2], 395 + 45, false, 2);
 
-    display.getTextBounds("Example Roundabout (AP)", startX, 505 + 15, &t_x1, &t_y1, &t_w, &t_h);
-    drawBoxedSection("Example Roundabout (AP)", 505, false, t_w);
+    display.getTextBounds(LABEL_BUS_3, startX, 505 + 15, &t_x1, &t_y1, &t_w, &t_h);
+    drawBoxedSection(LABEL_BUS_3, 505, false, t_w);
     renderDepartures(results[3], 505 + 45, false, 2);
 
-    display.getTextBounds("Example Roundabout (AC)", startX, 615 + 15, &t_x1, &t_y1, &t_w, &t_h);
-    drawBoxedSection("Example Roundabout (AC)", 615, false, t_w);
+    display.getTextBounds(LABEL_BUS_4, startX, 615 + 15, &t_x1, &t_y1, &t_w, &t_h);
+    drawBoxedSection(LABEL_BUS_4, 615, false, t_w);
     renderDepartures(results[4], 615 + 45, false, 2);
 
     int footerY = 750;
