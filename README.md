@@ -2,6 +2,10 @@
 
 A battery-powered departure board. It shows the next trains from a local station and the next buses from four nearby stops, live from the [TfL Unified API](https://api.tfl.gov.uk/), on a 7.5" black-and-white e-ink screen in portrait.
 
+<img src="docs/board.jpg" width="450" alt="The departure board in a black picture frame: a TfL Departures header, one train section and four bus sections with departure times, and Updated and Battery status boxes at the bottom">
+
+*The board on the wall. Stop names, routes and destinations are blurred.*
+
 ## Hardware
 
 | Part | Notes |
