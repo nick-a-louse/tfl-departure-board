@@ -40,6 +40,12 @@ Claude (an AI coding agent) rewrote and extended the firmware under my direction
 
 More about how I work this way: [my GitHub profile](https://github.com/nick-a-louse).
 
+## Acknowledgements
+
+- **[esp32-weather-epd](https://github.com/lmarzen/esp32-weather-epd)** by Luke Marzen: the low-power e-ink weather display that inspired this board. I started from my own build of it on the same hardware (FireBeetle 2 ESP32-E and a 7.5" panel) and borrowed its approach to deep sleep and battery monitoring, plus the "no Wi-Fi" and "battery critical" icons.
+- Those icons come originally from [Phosphor Icons](https://github.com/phosphor-icons/homepage) (MIT) and Google's [Material Symbols](https://fonts.google.com/icons) (Apache 2.0).
+- The battery percentage curve is adapted from [BatterySense](https://github.com/rlogiacco/BatterySense) by Roberto Lo Giacco.
+
 ## Licence
 
 [MIT](LICENSE). The fonts in `include/Fonts` are Adafruit GFX conversions of FreeSans from GNU FreeFont, which keep their own licence (GPL with the font exception).
